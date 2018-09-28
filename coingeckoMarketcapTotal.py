@@ -1,6 +1,6 @@
 import requests
 import csv
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 
 class CoingeckoAPI:
@@ -46,6 +46,13 @@ class DayMarketcap:
         self.date_for_api = str(day) + "-" + str(month) + "-" + str(year)
         self.date_for_print = str(year) + "/" + str(month) + "/" + str(day)
 
+        today = date.today()
+
+        if year == today.year and month == today.month and day == today.day:
+            return True
+        else:
+            return False
+
     def add_marketcap(self,marketcap):
         print(marketcap)
         if marketcap != None:
@@ -58,14 +65,16 @@ def main():
     coingecko = CoingeckoAPI()
     days = []
     coin_name_list = coingecko.get_coins_list()
-    print(len(coin_name_list))
+    number_of_coins = len(coin_name_list)
+    print(number_of_coins)
+    number_of_days = 1971
 
 
     # https://www.nannichime.net/days.php?sy=2013&sm=4&sd=28&ey=2018&em=9&ed=19&f=y
     # 2013.4.28 to 2018.9.19 = 1971 days
-    for i in range(100):
+    for i in range(number_of_days):
         dayMarketcap = DayMarketcap()
-        dayMarketcap.set_date(i)
+        judge_date = dayMarketcap.set_date(i)
         print(dayMarketcap.date_for_print)
 
         for name in coin_name_list:
@@ -73,6 +82,9 @@ def main():
             dayMarketcap.add_marketcap(marketcap)
 
         days.append(dayMarketcap)
+
+        if judge_date == True:
+            break
 
     print("Finished getting all data. Printing.")
     
