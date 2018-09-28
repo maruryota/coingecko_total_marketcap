@@ -11,16 +11,24 @@ $ python coingeckoMarketcapTotal.py
 
 OUTPUT
   number of cryptocurrency
+
   date
+
   marketcap
+
   ...
+
   date
+
   marketcap
+
   ...
+
   .
   .
   .
   Finished getting all data. Printing.
+  
   2013/4/28 13094832094
 .
 .
