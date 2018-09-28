@@ -77,7 +77,7 @@ def main():
     print("Finished getting all data. Printing.")
     
     for day in days:
-        print(day.date_for_print　+ " " + day.total_marketcap)
+        print(day.date_for_print + "-" + str(day.total_marketcap))
 
 if __name__ == "__main__":
     main()
