@@ -66,6 +66,7 @@ def main():
     for i in range(100):
         dayMarketcap = DayMarketcap()
         dayMarketcap.set_date(i)
+        print(dayMarketcap.date_for_print)
 
         for name in coin_name_list:
             marketcap = coingecko.get_coins_history(name,dayMarketcap.date_for_api)
@@ -73,12 +74,9 @@ def main():
 
         days.append(dayMarketcap)
 
+    print("Finished getting all data. Printing.")
     for day in days:
         print(day.date_for_print　+ " " + day.total_marketcap)
-
-    
-
-
 
 if __name__ == "__main__":
     main()
