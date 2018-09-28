@@ -75,6 +75,7 @@ def main():
         days.append(dayMarketcap)
 
     print("Finished getting all data. Printing.")
+    
     for day in days:
         print(day.date_for_print　+ " " + day.total_marketcap)
 
