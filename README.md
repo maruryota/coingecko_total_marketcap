@@ -1,6 +1,6 @@
 # coingecko_total_marketcap
 
-Hello, I'm Macky.
+Hello.
 
 Using this code, you can get total marketcap of cryptocurrency from coinmarketcap.
 
